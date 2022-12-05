@@ -1,16 +1,17 @@
 import { useRef } from 'react';
+import { NullLiteral } from 'typescript';
 import Button from '../ui/button';
 import classes from './events-search.module.css';
 
-function EventsSearch(props) {
+function EventsSearch(props: { onSearch: (arg0: any, arg1: any) => void; }) {
     const yearInputRef = useRef<HTMLSelectElement>(null);
     const monthInputRef = useRef<HTMLSelectElement>(null);
 
-    function submitHandler(event) {
+    function submitHandler(event: { preventDefault: () => void; }) {
         event.preventDefault();
 
-        const selectedYear = yearInputRef.current.value;
-        const selectedMonth = monthInputRef.current.value;
+        const selectedYear = (yearInputRef as any).current.value;
+        const selectedMonth = (monthInputRef as any).current.value;
 
         props.onSearch(selectedYear, selectedMonth);
     }
