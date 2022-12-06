@@ -22,7 +22,6 @@ function EventsSearch(props: { onSearch: (arg0: any, arg1: any) => void; }) {
                 <div className={classes.control}>
                     <label htmlFor="year">Year</label>
                     <select name="year" id="year" ref={yearInputRef} >
-                        <option value="2021">2021</option>
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
                     </select>

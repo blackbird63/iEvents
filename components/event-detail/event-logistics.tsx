@@ -11,19 +11,19 @@ function EventLogistics(props: { date: string; address: string; image: string; i
     month: 'long',
     year: 'numeric',
   });
-  const addressText = address.replace(', ', '\n');
+ 
 
   return (
     <section className={classes.logistics}>
       <div className={classes.image}>
-        <img src={`/${image}`} alt={imageAlt} />
+        <img src={`${image}`} alt={imageAlt} />
       </div>
       <ul className={classes.list}>
         <LogisticsItem icon={DateIcon}>
           <time>{humanReadableDate}</time>
         </LogisticsItem>
         <LogisticsItem icon={AddressIcon}>
-          <address>{addressText}</address>
+          <address>{address}</address>
         </LogisticsItem>
       </ul>
     </section>
