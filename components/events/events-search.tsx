@@ -27,7 +27,7 @@ function EventsSearch(props: { onSearch: (arg0: any, arg1: any) => void; }) {
                     </select>
                 </div>
                 <div className={classes.control}>
-                    <label htmlFor="month">Year</label>
+                    <label htmlFor="month">Month</label>
                     <select name="month" id="month" ref={monthInputRef} >
                         <option value="1">Janvier</option>
                         <option value="2">Février</option>

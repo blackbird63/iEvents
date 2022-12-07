@@ -1,5 +1,6 @@
 .list {
-    width: 90%;
+    width: 100%;
     max-width: 40rem;
     margin: 5rem auto;
+    padding: 0;
   }

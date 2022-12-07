@@ -13,6 +13,9 @@
     flex-direction: column;
     align-items: center;
   }
+  /* .logistics li{
+    flex-direction: row;
+  } */
   
   .image {
     width: 10rem;
@@ -32,6 +35,7 @@
     flex: 3;
     display: flex;
     gap: 2rem;
+    padding: 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -49,6 +53,9 @@
       flex-direction: row;
       align-items: stretch;
     }
+    /* .logistics li{
+      flex-direction: column;
+    } */
   
     .image {
       width: 20rem;
