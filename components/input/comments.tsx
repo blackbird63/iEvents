@@ -21,11 +21,12 @@ function Comments(props: any) {
                 .then((response) => response.json())
                 .then((data) => {
                     setComments(data.comments);
+                    console.log(data);
                     setIsFetchingComments(false);
                 });
         }
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [showComments]);
 
     function toggleCommentsHandler() {
