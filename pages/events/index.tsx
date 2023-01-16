@@ -30,7 +30,7 @@ export async function getStaticProps() {
     const events = await getAllEvents();
     return {
         props: {
-            events: events,
+            events: JSON.stringify(events),
         },
         revalidate: 60,
     };

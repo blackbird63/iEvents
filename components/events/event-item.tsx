@@ -13,6 +13,7 @@ function EventItem(props: {
 }) {
     const { title, image, date, location, id } = props;
 
+
     const humanReadableDate = new Date(date).toLocaleDateString('fr-FR', {
         day: 'numeric',
         month: 'long',

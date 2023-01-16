@@ -23,13 +23,12 @@ function NewsletterRegistration() {
                 'Content-Type': 'application/json',
             },
         })
-            .then((response) => {
-                if(response.ok) {
+            .then(async (response) => {
+                if (response.ok) {
                     return response.json();
                 }
-                return response.json().then(data => {
-                    throw new Error(data.message || 'Something went wrong!')
-                })
+                const data = await response.json();
+                throw new Error(data.message || 'Something went wrong!');
             })
             .then((data) => {
                 notificationCtx.showNotification({

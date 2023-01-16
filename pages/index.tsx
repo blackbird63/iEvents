@@ -3,7 +3,7 @@ import EventList from '../components/events/event-list'
 import Head from 'next/head';
 import NewsletterRegistration from '../components/input/newsletter-registration';
 
-function HomePage(props: { events: any[]; }) {
+function HomePage(props : any) {
   
     return (
         <div>
@@ -21,7 +21,7 @@ export async function getStaticProps() {
     const featuredEvents = await getFeaturedEvents();
     return {
         props: {
-            events: featuredEvents
+            events: JSON.stringify(featuredEvents)
         },
         revalidate: 1800
     }

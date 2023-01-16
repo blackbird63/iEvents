@@ -6,6 +6,7 @@ import {
 
 async function handler(req: any, res: any) {
     const eventId = req.query.eventId;
+    console.log(req);
 
     let client;
 
@@ -45,8 +46,9 @@ async function handler(req: any, res: any) {
             eventId,
         };
 
-        let result;
 
+        let result;
+        console.log(newComment);
         try {
             result = await inserDocument(client, 'comments', newComment);
             newComment._id = result?.insertedId;

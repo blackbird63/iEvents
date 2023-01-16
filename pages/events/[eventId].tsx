@@ -8,7 +8,7 @@ import Head from 'next/head';
 import Comments from '../../components/input/comments';
 
 function EventDetailPage(props: { selectedEvent: any }) {
-    const event = props.selectedEvent;
+    const event = JSON.parse(props.selectedEvent);
     if (!event) {
         return (
             <ErrorAlert>
@@ -32,14 +32,14 @@ function EventDetailPage(props: { selectedEvent: any }) {
             <EventContent>
                 <p>{event.description}</p>
             </EventContent>
-            <Comments eventId={event.id} />
+            <Comments eventId={event._id} />
         </Fragment>
     );
 }
 
 export async function getStaticPaths() {
     const events = await getAllEvents();
-    const paths = events.map((event) => ({ params: { eventId: event.id } }));
+    const paths = events.map((event: any) => ({ params: { eventId: event.id } }));
     return {
         paths: paths,
         fallback: false,
@@ -51,7 +51,7 @@ export async function getStaticProps(context: { params: { eventId: any } }) {
     const event = await getEventById(eventId);
     return {
         props: {
-            selectedEvent: event,
+            selectedEvent: JSON.stringify(event),
         },
         revalidate: 60
     };

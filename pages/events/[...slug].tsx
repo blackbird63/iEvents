@@ -95,7 +95,7 @@ export async function getServerSideProps(context: { params: any; }) {
 
     return {
         props: {
-            events: filteredEvents,
+            events: JSON.stringify(filteredEvents),
             date: {
                 year: numYear,
                 month: numMonth

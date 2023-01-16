@@ -26,7 +26,7 @@ function Comments(props: any) {
                 });
         }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [showComments]);
 
     function toggleCommentsHandler() {
@@ -47,13 +47,12 @@ function Comments(props: any) {
                 'Content-Type': 'application/json',
             },
         })
-            .then((response) => {
+            .then(async (response) => {
                 if (response.ok) {
                     return response.json();
                 }
-                return response.json().then((data) => {
-                    throw new Error(data.message || 'Something went wrong!');
-                });
+                const data = await response.json();
+                throw new Error(data.message || 'Something went wrong!');
             })
             .then((data) => {
                 notificationCtx.showNotification({
@@ -77,7 +76,9 @@ function Comments(props: any) {
                 {showComments ? 'Hide' : 'Show'} Comments
             </button>
             {showComments && <NewComment onAddComment={addCommentHandler} />}
-            {showComments && !isFetchingComments && <CommentList items={comments} />}
+            {showComments && !isFetchingComments && (
+                <CommentList items={comments} />
+            )}
             {showComments && isFetchingComments && <p>Loading...</p>}
         </section>
     );
